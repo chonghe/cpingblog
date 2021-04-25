@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  * <p>
  * 
@@ -29,11 +31,11 @@ public class Blog implements Serializable {
     private Long id;
 
     private Long userId;
-
+    @NotBlank(message = "not empty required")
     private String title;
-
+    @NotBlank(message = "not empty required")
     private String description;
-
+    @NotBlank(message = "not empty required")
     private String content;
 
     private LocalDateTime created;

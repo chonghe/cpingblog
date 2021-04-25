@@ -7,6 +7,10 @@ spring:
     password: Pz+20180101
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
+shiro-redis:
+  enabled: true
+  redis-manager:
+    host: 127.0.0.1:6379
 server:
   port: 9000
 cping:
