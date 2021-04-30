@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
-import Blogs from '../views/Blogs'
-import BlogEdit from '../views/BlogEdit'
-import BlogDetail from '../views/BlogDetail'
+import Blogs from '../views/Blogs.vue'
+import BlogEdit from '../views/BlogEdit.vue'
+import BlogDetail from '../views/BlogDetail.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'index',
-    redirect:{name:"Blogs"}
+    name: 'Index',
+    redirect: {name: "Blogs"}
   },
   {
     path: '/blogs',
@@ -24,20 +25,31 @@ const routes = [
     component: Login
   },
   {
-    path: '/blog/:blogId/edit',
-    name: 'BlogEdit',
-    component: BlogEdit
+    path: '/about',
+    name: 'About',
+    component: About
   },
   {
     path: '/blog/add',
-    name: 'BlogEdit',
-    component: BlogEdit
+    name: 'BlogAdd',
+    component: BlogEdit,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: '/blog/:blogId',
     name: 'BlogDetail',
     component: BlogDetail
   },
+  {
+    path: '/blog/:blogId/edit',
+    name: 'BlogEdit',
+    component: BlogEdit,
+    meta: {
+      requireAuth: true
+    }
+  }
 ]
 
 const router = new VueRouter({
